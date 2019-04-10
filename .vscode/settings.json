@@ -1,0 +1,4 @@
+{
+    "editor.tabCompletion": "on",
+    "python.linting.pylintEnabled": true
+}

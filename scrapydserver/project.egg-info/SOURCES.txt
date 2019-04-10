@@ -1,0 +1,14 @@
+setup.py
+bot/__init__.py
+bot/items.py
+bot/middlewares.py
+bot/pipelines.py
+bot/settings.py
+bot/spiders/__init__.py
+bot/spiders/utils.py
+bot/spiders/weibo_spider.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt

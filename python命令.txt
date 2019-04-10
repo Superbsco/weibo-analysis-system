@@ -1,0 +1,50 @@
+创建基本环境：mkvirtualenv [环境名]
+删除环境：rmvirtualenv [环境名]
+激活环境：workon [环境名]
+退出环境：deactivate
+列出所有环境：workon 或者 lsvirtualenv -b
+
+生成文件：pip freeze > requirements.txt
+从requirements.txt安装依赖库：pip install -r requirements
+Successfully installed beautifulsoup4-4.7.1 bs4-0.0.1 soupsieve-1.9
+Successfully installed js2xml-0.3.1 ply-3.11 slimit-0.8.1
+import pymysql
+pymysql.install_as_MySQLdb()
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'WeiboAnalysisSystem',
+        'USER': 'root',
+        'PASSWORD': 'Aa123hsp.',
+        'HOST': '139.199.4.56'
+    }
+}
+
+migrate负责应用和取消应用迁移。
+makemigrations负责根据您对模型所做的更改创建新的迁移。
+sqlmigrate显示迁移的SQL语句。
+showmigrations列出项目的迁移及其状态。
+
+---------------------------------------------------
+git add .   把工作时的所有变化提交到暂存区
+git commit -m 'change'
+git push
+
+git checkout master
+git merge origin/index-swiper
+git push
+
+git pull    远程分支拉到本地
+git checkout index-icons 切换分支
+
+本地数据库
+net start mysql80
+net stop mysql80
+初始账号：root
+初始密码：1234
+
+https://code.ziqiangxuetang.com/django/django-generic-views.html
+https://weibo.cn/1769965211/info
+https://www.cnblogs.com/apollo1616/articles/9922383.html
+https://github.com/LiuXingMing/SinaSpider/blob/master/Sina_spider3/Sina_spider3/spiders/sinaSpider.py
