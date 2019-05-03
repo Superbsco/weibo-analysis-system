@@ -15,11 +15,17 @@ import sys
 import random
 import time
 import js2xml
+import json
+import urllib
+import os
 
+from os import path
 from bs4 import BeautifulSoup
 from datetime import datetime
 from datetime import timedelta
 from lxml import etree
+from src.SnowNLPAPI.snownlp import SnowNLP
+from src.SnowNLPAPI.snownlp import sentiment
 from .models import UserInfo, TweetsInfo, CommentWeiboInfo, CommentInfo
 from .agents import getAgent
 
@@ -95,7 +101,7 @@ class Weibo:
 
             try:
                 urlothers = "https://weibo.cn/attgroup/opening?uid=%d" % (self.user_id)
-                r = requests.get(urlothers, cookies=self.cookie, headers=self.agent, timeout=5)
+                r = requests.get(urlothers, headers=self.agent, cookies=self.cookie)
                 if r.status_code == 200:
                     selector = etree.HTML(r.content)
                     texts = ";".join(selector.xpath('//body//div[@class="tip2"]/a//text()'))
@@ -120,7 +126,7 @@ class Weibo:
                 return "用户信息爬取成功~"
                 
         except Exception as e:
-            print("Error: ", e)
+            print("Error123: ", e)
             traceback.print_exc()
 
     # 获取"长微博"全部文字内容
@@ -129,9 +135,9 @@ class Weibo:
             html = requests.get(weibo_link, headers=self.agent, cookies=self.cookie).content
             selector = etree.HTML(html)
             info = selector.xpath("//div[@class='c']")[1]
-            wb_content = info.xpath("div/span[@class='ctt']")[0].xpath(
+            wb_content = info.xpath('//div[@id="M_"]//span[@class="ctt"]')[0].xpath(
                 "string(.)").replace(u"\u200b", "").encode(sys.stdout.encoding, "ignore").decode(
-                sys.stdout.encoding)
+                sys.stdout.encoding) 
             return wb_content
         except Exception as e:
             print("Error: ", e)
@@ -275,9 +281,10 @@ class Weibo:
             for page in range(1, page_num + 1):
                 url2 = "https://weibo.cn/u/%d?filter=%d&page=%d" % (
                     self.user_id, self.filter, page)
-                html2 = requests.get(url2, cookies=self.cookie, headers=self.agent).content
+                html2 = requests.get(url2, headers=self.agent, cookies=self.cookie).content
                 selector2 = etree.HTML(html2)
                 infos = selector2.xpath("//div[@class='c' and @id]")
+                print(infos)
                 info_s = selector2.xpath("//div[@class='c']")
                 is_empty = info_s[0].xpath("div/span[@class='ctt']")
                 if is_empty:
@@ -311,6 +318,14 @@ class Weibo:
                             tweetsItems._id = wb_id[0]
                         if content:
                             tweetsItems.Content = content
+                            s = SnowNLP(content.replace('转发理由','').replace('转发内容', '').replace('原始用户', '').replace('转发微博已被删除', ''))
+                            mm = ()
+                            for i in s.tags:
+                                mm += i
+                            tweetsItems.tags= s.keywords(5)
+                            tweetsItems.pinyin = mm
+                            tweetsItems.sentiments=str(s.sentiments)
+                            print(s.keywords(5))
                         if cooridinates:
                             tweetsItems.Co_oridinates = cooridinates
                         if like:
@@ -327,17 +342,19 @@ class Weibo:
                             TweetsInfo.objects.get(_id = tweetsItems._id)
                         except TweetsInfo.DoesNotExist:
                             print(tweetsItems)
-                            self.tweets_list_to_insert.append(tweetsItems)
-            try:
-                print("数据抓取完毕，开始写入数据库")
-                TweetsInfo.objects.bulk_create(self.tweets_list_to_insert)
-                print("写入数据库成功")
-                return "数据抓取完毕"
-            except Exception as e:
-                return "e:",e
+                            tweetsItems.save()
+            # try:
+            #     print("数据抓取完毕，开始写入数据库")
+            #     TweetsInfo.objects.bulk_create(self.tweets_list_to_insert)
+            #     print("写入数据库成功")
+            #     return "数据抓取完毕"
+            # except Exception as e:
+            #     TweetsInfo.objects.bulk_create(self.tweets_list_to_insert)
+            #     print("部分数据抓取失败，已抓取写入数据库成功")
+            #     return "e:",e
             
         except Exception as e:
-            print("Error: ", e)
+            print("Error微博文本: ", e)
             traceback.print_exc()
     
     def fix_time(self, publish_time):
@@ -379,8 +396,7 @@ class Weibo:
         return time_string
     # 获取微博评论信息
     def get_comment_info(self, id):
-        c_urls ='https://m.weibo.cn/api/comments/show?id=' + id + '&page={}'
-
+        c_urls ='https://m.weibo.cn/api/comments/show?id='+ id +'&page={}'
         wb_url = 'https://m.weibo.cn/detail/' + id
         wb_r = requests.get(wb_url, headers=self.agent, cookies=self.cookie).content
         soup = BeautifulSoup(wb_r, 'lxml')
@@ -388,7 +404,6 @@ class Weibo:
         src_text = js2xml.parse(src,  debug=False)
         src_tree = js2xml.pretty_print(src_text)
         selector2 = etree.HTML(src_tree)
-
         wb_id = selector2.xpath("//property[@name='id']//text()")[1]
         wb_userName = selector2.xpath("//property[@name='screen_name']/string//text()")[0]
         wb_userId = selector2.xpath("//property[@name='profile_url']//text()")[1].split('uid=')[1]
@@ -402,9 +417,10 @@ class Weibo:
         wb_pic_ids = selector2.xpath("//property[@name='pic_ids']/array/string//text()")
         wb_reposts = selector2.xpath("//property[@name='reposts_count']//@value")[0]
         wb_comments = selector2.xpath("//property[@name='comments_count']//@value")[0]
+        wb_like = selector2.xpath("//property[@name='attitudes_count']//@value")[0]
         # print(src_tree)
         # print(wb_userName)
-        print(wb_id, wb_userId,wb_user_profile_image_url,wb_created_at,wb_source,wb_text,wb_pic_ids,wb_reposts,wb_comments)
+        # print(wb_like)
         commentWeiboInfo = CommentWeiboInfo()
         if wb_id:
             commentWeiboInfo.wb_id = wb_id
@@ -417,15 +433,25 @@ class Weibo:
         if wb_created_at:
             commentWeiboInfo.wb_created_at = self.fix_time(wb_created_at)
         if wb_source:
-            commentWeiboInfo.c_source = wb_source
+            commentWeiboInfo.wb_source = wb_source
         if wb_text:
             commentWeiboInfo.wb_text = wb_text
         if wb_pic_ids:
             commentWeiboInfo.wb_pic_ids = wb_pic_ids
+            filepath = path.abspath(path.join(os.getcwd(), "webview/static"))
+            print(filepath)
+            for wb_pic_id in wb_pic_ids:
+                with urllib.request.urlopen("https://wx2.sinaimg.cn/large/" + wb_pic_id, timeout=30) as response, open(filepath +"\\"+ wb_pic_id+".jpg", 'wb') as f_save:
+                    print("下载图片%s" % wb_pic_id)
+                    f_save.write(response.read())
+                    f_save.flush()
+                    f_save.close()
         if wb_reposts:
             commentWeiboInfo.wb_reposts = int(wb_reposts)
         if wb_comments:
             commentWeiboInfo.wb_comments = int(wb_comments)
+        if wb_like:
+            commentWeiboInfo.wb_like = int(wb_like)
 
         try:
             CommentWeiboInfo.objects.get(wb_id = commentWeiboInfo.wb_id)
@@ -441,17 +467,13 @@ class Weibo:
         comment_num = 1
         while True:
             r = requests.get(url = c_urls.format(i), headers=self.agent, cookies=self.cookie)
-           
-            # print(comment_data)
             if  int(r.json()['ok']) == 1:
-                # try:
                 comment_data = r.json()['data']['data']
                 print('正在读取第 %s 页评论：' % i)
                 for j in range(0,len(comment_data)):
                     commentInfo = CommentInfo()
                     print('第 %s 条评论' % comment_num)
                     user = comment_data[j]
-                    # print(user)
                     wb_id = id
                     c_id = user['id']
                     c_created_at = user['created_at']
@@ -462,8 +484,6 @@ class Weibo:
                     c_user_url = user['user']['profile_url']       
                     c_text = re.sub('<.*?>|回复<.*?>:|[\U00010000-\U0010ffff]|[\uD800-\uDBFF][\uDC00-\uDFFF]','',user['text'])
                     c_likenum = user['like_counts']
-                    
-
                     if wb_id:
                         commentInfo.CommentWeiboInfo_id = wb_id
                     if c_id:
@@ -484,22 +504,7 @@ class Weibo:
                         commentInfo.c_text = c_text
                     if c_likenum:
                         commentInfo.c_like_num = int(c_likenum)
-                    print(c_id)
-                    # print(commentInfo.c_created_at)
-                    # print(c_source)
-                    # print(c_user_id)
-                    # print(c_user_name)
-                    # print(c_user_img)
-                    # print(c_user_url)
-                    print(c_text)
-                    # print(c_likenum)
                     comment_num += 1
-                    # try:
-                    #     print("微博内容抓取完毕，开始写入数据库")
-                    #     commentInfo.save()
-                    #     print("微博内容写入数据库成功,开始抓取评论")
-                    # except Exception as e:
-                    #     return "e:",e
                     try:
                         CommentInfo.objects.get(c_id = commentInfo.c_id)
                         print("评论已存在数据库")
@@ -507,10 +512,7 @@ class Weibo:
                         self.comment_list_to_insert.append(commentInfo)
                         print(len(self.comment_list_to_insert))
                 i+=1
-                time.sleep(3)
-                # except Exception as e:
-                #     print("发生异常了！", e)
-                #     pass 
+                time.sleep(2)
             else:
                 print("跳出while=======================")
                 break        

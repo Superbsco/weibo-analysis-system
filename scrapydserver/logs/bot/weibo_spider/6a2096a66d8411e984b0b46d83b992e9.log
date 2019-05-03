@@ -1,0 +1,618 @@
+2019-05-03 17:18:34 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: bot)
+2019-05-03 17:18:34 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.6.3 |Anaconda, Inc.| (default, Oct 15 2017, 03:27:45) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17763-SP0
+2019-05-03 17:18:34 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'bot', 'DOWNLOAD_DELAY': 3, 'LOG_FILE': 'logs\\bot\\weibo_spider\\6a2096a66d8411e984b0b46d83b992e9.log', 'NEWSPIDER_MODULE': 'bot.spiders', 'SPIDER_MODULES': ['bot.spiders']}
+2019-05-03 17:18:34 [scrapy.extensions.telnet] INFO: Telnet Password: 44c1b93d74d2b1b5
+2019-05-03 17:18:35 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-05-03 17:18:35 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-05-03 17:18:35 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-05-03 17:18:36 [scrapy.middleware] INFO: Enabled item pipelines:
+['bot.pipelines.BotPipeline']
+2019-05-03 17:18:36 [scrapy.core.engine] INFO: Spider opened
+2019-05-03 17:18:36 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-05-03 17:18:36 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-05-03 17:18:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/info> (referer: None)
+2019-05-03 17:18:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/5743554844> (referer: https://weibo.cn/5743554844/info)
+2019-05-03 17:18:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5743554844>
+{'Image': 'http://tva3.sinaimg.cn/crop.0.0.664.664.180/006gHmZmjw8ezflphbdzrj30ig0ig0tp.jpg',
+ '_id': '5743554844',
+ 'brief_introduction': '春柳之渐染，似残雪之消融，既雕既琢，复归于朴。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 37, 694169),
+ 'fans_num': 34,
+ 'follows_num': 89,
+ 'gender': '男',
+ 'nick_name': 'Mr丶Paradox',
+ 'province': '河南',
+ 'tweets_num': 54,
+ 'vip_level': '未开通'}
+2019-05-03 17:18:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/profile?page=1> (referer: https://weibo.cn/u/5743554844)
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_HsmwGvWKi',
+ 'comment_num': 0,
+ 'content': '为什么成为中国人的原创？为何外销瓷能成为最早的全球化商品？西方人为瓷疯狂，他们如何破解中国人制瓷的秘密？雄霸国际市场300年之久，中国外销瓷为什么会渐渐沉寂...... '
+            '《china·瓷》主创访谈独家解读“china·瓷”背后的故事。 http://t.cn/zjIdDDD',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 98020),
+ 'created_at': '2019-05-02 20:25',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsmwGvWKi'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_Hsmwr69Q6',
+ 'comment_num': 0,
+ 'content': '改革开放40周年#【今天，致敬科学家！】袁隆平、程开甲、潘建伟、屠呦呦、于敏、南仁东、王大珩、王永民、王选、叶聪、孙家栋、陈景润、罗阳、钟南山……大国重器和尖端技术要掌握在自己手里，离不开默默奉献的科学家们。今天，以科学的名义，致敬民族脊梁！人民日报的秒拍视频',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 128060),
+ 'created_at': '2019-05-02 20:24',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Hsmwr69Q6'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_HsmwpkClX',
+ 'comment_num': 0,
+ 'content': '袁隆平[超话]#大家好，这里是著名农学家袁隆平先生的全球粉丝后援会。欢迎大家的关注，在这里我会发一些关于袁隆平先生的微博！感谢大家的支持！我们一起向袁老的精神学习！加油！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 138040),
+ 'created_at': '2019-05-02 20:24',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsmwpkClX'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_HsmwmEZzB',
+ 'comment_num': 0,
+ 'content': '是中国的栋梁之才，研究的杂交水稻，为中国解决了大米生产，国民温饱问题，真正的名人，袁隆平院士，袁老，致敬！赞',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 148058),
+ 'created_at': '2019-05-02 20:24',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsmwmEZzB'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_Hsmv94e1T',
+ 'comment_num': 0,
+ 'content': '袁隆平[超话]#大家好，这里是著名农学家袁隆平先生的全球粉丝后援会。欢迎大家的关注，在这里我会发一些关于袁隆平先生的微博！感谢大家的支持！我们一起向袁老的精神学习！加油！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 168072),
+ 'created_at': '2019-05-02 20:21',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Hsmv94e1T'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_HsmtXa7Ce',
+ 'comment_num': 0,
+ 'content': '袁隆平[超话]#大家好，这里是著名农学家袁隆平先生的全球粉丝后援会。欢迎大家的关注，在这里我会发一些关于袁隆平先生的微博！感谢大家的支持！我们一起向袁老的精神学习！加油！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 178017),
+ 'created_at': '2019-05-02 20:18',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsmtXa7Ce'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_HskEfkI0P',
+ 'comment_num': 0,
+ 'content': '想五一节三八节从何而来，你就应该相信世界是可以改变的。英格兰被伊顿公学毕业生麾下的骑兵踩死的工匠师傅，巴黎墙角被有意识屠杀的印刷工人，纽约和芝加哥街头被嘲讽的女工，圣彼得堡高举沙皇画像请求改善生活而不得的穷人……他们改变了世界。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 200632),
+ 'created_at': '2019-05-02 15:38',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HskEfkI0P'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_HsekFp0b6',
+ 'comment_num': 0,
+ 'content': '海青槿子影流逐波转，聚散形如华。凤岐鸣德兮，鲲海叹於沙。河天龙唯尔，玄鸟征叱咤。奇衡缘久弋，暮雨道庭涯。（也不知道山海经记载的那些神兽好吃不好吃，写打油诗的时候感jio有些地方不和韵） '
+            '开封',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 220570),
+ 'created_at': '2019-05-01 23:33',
+ 'like_num': 1,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsekFp0b6'}
+2019-05-03 17:18:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=1>
+{'_id': '5743554844_Hse0m3efK',
+ 'comment_num': 0,
+ 'content': 'IG冠军皮肤# 冠军皮肤上线辣',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 238277),
+ 'created_at': '2019-05-01 22:43',
+ 'like_num': 1,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Hse0m3efK'}
+2019-05-03 17:18:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/profile?page=6> (referer: https://weibo.cn/5743554844/profile?page=1)
+2019-05-03 17:18:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=6>
+{'_id': '5743554844_DaNuKaLGz',
+ 'comment_num': 0,
+ 'content': '零下35℃！边防官兵徒步拉练睫毛结冰霜[雪]】驻守在祖国最北端黑龙江省漠河县北极村的武警漠河边防大队北极机动中队组织官兵冒着-35℃的严寒，进行徒步拉练。拉练过程中，因为天气寒冷，官兵的帽子、面罩、手套上都凝结了一层厚厚的冰霜。看着就冷！-35℃边防官兵徒步拉练睫毛结冰霜 '
+            '转发，致敬！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 47, 578022),
+ 'created_at': '2015-12-30 13:02:04',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNuKaLGz'}
+2019-05-03 17:18:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=6>
+{'_id': '5743554844_DaNu9fof8',
+ 'comment_num': 0,
+ 'content': '2015年仅剩1天结束！此刻，你愿意为这352名孩子转发吗？】他们，都是打拐行动中被解救的孩子，有的被拐卖时，刚出生几天……他们可能从未能在父母怀中撒娇，至今不明白爸爸、妈妈的真正含义',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 47, 628037),
+ 'created_at': '2015-12-30 13:00:36',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNu9fof8'}
+2019-05-03 17:18:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=6>
+{'_id': '5743554844_DaNsSme3M',
+ 'comment_num': 0,
+ 'content': '不论什么专业都要了解的18个实用效应】飞轮效应：很多事刚开始很难，但坚持过了临界点就会变轻松；登门槛效应：要让他人接受很难的要求时，最好先让他接受一个小一点的要求，这样他就比较容易接受更高的要求……心理学、管理学最实用的18个定律，戳图↓↓ '
+            '转需！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 47, 628037),
+ 'created_at': '2015-12-30 12:57:27',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNsSme3M'}
+2019-05-03 17:18:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=6>
+{'_id': '5743554844_DaNqWmNbJ',
+ 'comment_num': 0,
+ 'content': '轻松一刻# 三人行，必有我师焉……两喵间，必有一只蛇精病。。。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 47, 638020),
+ 'created_at': '2015-12-30 12:52:42',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNqWmNbJ'}
+2019-05-03 17:18:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/profile?page=5> (referer: https://weibo.cn/5743554844/profile?page=1)
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DfzhOhLuL',
+ 'comment_num': 0,
+ 'content': '早才发现内衣袖口竟然烂成这样子了！这件内衣我穿了18年，浑然不知已经成了丐帮制服了。我是有了钱也不嫌弃旧衣裳，发了财也不忘老朋友。没法再穿了，为它搞个告别式吧。亲爱的内衣，再见了。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 516147),
+ 'created_at': '2016-01-30 22:03:15',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DfzhOhLuL'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_Dd04EmYdg',
+ 'comment_num': 0,
+ 'content': '只叫Mishka的哈士奇，天生自带话痨属性。词汇量真大，不服不行…… http://t.cn/R4Vp8iF',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 546089),
+ 'created_at': '2016-01-14 00:44:06',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Dd04EmYdg'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaO2wC0dQ',
+ 'comment_num': 0,
+ 'content': '人说一句反鸡汤，卧槽，简直太丧心病狂了！！！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 556109),
+ 'created_at': '2015-12-30 14:25:17',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaO2wC0dQ'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaO12qSgG',
+ 'comment_num': 0,
+ 'content': 'SQ# 今年还有最后2天。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 576139),
+ 'created_at': '2015-12-30 14:21:38',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaO12qSgG'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaNQL50GF',
+ 'comment_num': 0,
+ 'content': '多少人晚上的睡觉的姿势是这样的？',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 596086),
+ 'created_at': '2015-12-30 13:56:17',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNQL50GF'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaNO5AEz1',
+ 'comment_num': 0,
+ 'content': '企鹅snow chick想钻老爸的育儿袋，因为体型太大不成功，最后终于学会和其他小企鹅抱团，全程蠢萌~',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 606079),
+ 'created_at': '2015-12-30 13:49:44',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNO5AEz1'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaNIqxrTP',
+ 'comment_num': 0,
+ 'content': '美国继续监听部分盟友 内塔尼亚胡名列榜首】- '
+            '两年前，在美国长期以来的秘密监听计划曝光后，美国总统奥巴马曾宣布将缩小对友好国家领导人的监听范围。但据现任和前任美国官员透露，实际上白宫决定继续严密监听部分盟友。名列榜首的就是以色列总理本雅明·内塔尼亚胡。http://t.cn/R4fSI5d',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 626135),
+ 'created_at': '2015-12-30 13:35:47',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNIqxrTP'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaNGHz7J3',
+ 'comment_num': 0,
+ 'content': '主播声音太骚了，虽然不玩lol，但是的确好贱！ 秒拍视频',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 646083),
+ 'created_at': '2015-12-30 13:31:31',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaNGHz7J3'}
+2019-05-03 17:18:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=5>
+{'_id': '5743554844_DaND7mjiu',
+ 'comment_num': 0,
+ 'content': '小明，滚出去！”全集一到四季！哈哈哈哈笑了我一早上~',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 50, 686084),
+ 'created_at': '2015-12-30 13:22:41',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/DaND7mjiu'}
+2019-05-03 17:18:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/profile?page=4> (referer: https://weibo.cn/5743554844/profile?page=1)
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_H1t9cbnV6',
+ 'comment_num': 0,
+ 'content': '庆祝iG夺冠，我也搞个冠军之月庆祝活动，本月我会抽四波奖。今天第一波，转发/评论/点赞中抽取113个人（庆祝11月3这个iG牛逼的日子）每个人一万元现金。11月11号开奖 '
+            '@微博抽奖平台',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 748649),
+ 'created_at': '2018-11-06 23:38:30',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/H1t9cbnV6'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_GvSdbpHSW',
+ 'comment_num': 0,
+ 'content': '试就测试呗，咋还骂人呢ヽ(´･д･｀)ﾉ',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 755658),
+ 'created_at': '2018-08-22 23:51:49',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/GvSdbpHSW'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_GvRI8wAul',
+ 'comment_num': 0,
+ 'content': '周一围0824生日快乐# 【生贺||燃向混剪】一步江山@周一围 '
+            '一顾紫宸之深，一念江湖之远。一岁悲喜，一步江山。周老师生日快乐，想说的话放在评论里啦～特别感谢@愁容骑士典当记 '
+            '的封面！（bgm：马德钟《江山》）他乡酒的秒拍视频',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 789638),
+ 'created_at': '2018-08-22 22:35:20',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/GvRI8wAul'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_GsxhJuzz5',
+ 'comment_num': 0,
+ 'content': '卡首发：露娜的口袋银河很疯狂的一张新卡，配合新卡露娜效果爆炸，预计未来会围绕这张卡诞生许多黑科技卡组。我专门为其做了一部真人特效视频，各位一定要看！ '
+            '神奇的老皮的秒拍视频',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 795622),
+ 'created_at': '2018-08-01 01:04:26',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/GsxhJuzz5'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_Gm5sl1BWf',
+ 'comment_num': 0,
+ 'content': '支持的球队打CALL！我刚在世界杯竞猜预测了乌拉圭夺冠，并成功领取500金豆！玩赚世界杯，还能赢取千万现金大奖，快来参与吧~世界杯玩赚竞猜',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 802618),
+ 'created_at': '2018-06-19 15:11:49',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Gm5sl1BWf'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_Gm5s28Khd',
+ 'comment_num': 0,
+ 'content': '在#签到领红包#围观世界杯！看球赛、玩竞猜，最高可赢iPhoneX！（球星卡还能抽大奖）老铁，快和我比比谁猜得准，一起签到吧！ '
+            '微博任务红包',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 812625),
+ 'created_at': '2018-06-19 15:11:04',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Gm5s28Khd'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_GlQ3lsFRw',
+ 'comment_num': 0,
+ 'content': '王者荣耀# 《拿不出手06》：貂蝉参加突围101，劈腿舞王C位出道',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 833601),
+ 'created_at': '2018-06-17 23:59:03',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/GlQ3lsFRw'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_GlQ2QcdKM',
+ 'comment_num': 0,
+ 'content': '王者荣耀# 《拿不出手06》：貂蝉参加突围101，劈腿舞王C位出道',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 841596),
+ 'created_at': '2018-06-17 23:57:47',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/GlQ2QcdKM'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_FzCD5nmmE',
+ 'comment_num': 0,
+ 'content': '，你们接着来审……',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 848592),
+ 'created_at': '2017-12-14 16:48:36',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/FzCD5nmmE'}
+2019-05-03 17:18:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=4>
+{'_id': '5743554844_FnKygtTsC',
+ 'comment_num': 1,
+ 'content': '洁心灵·逐梦演艺圈[星星][星星][星星][星星][星星]，参见异天途，一个全是乱码，呗书友们推到榜一控诉起点审核的666，这个可能是反串黑的影视版异天途。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 54, 857588),
+ 'created_at': '2017-09-27 14:55:03',
+ 'like_num': 1,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/FnKygtTsC'}
+2019-05-03 17:18:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/profile?page=3> (referer: https://weibo.cn/5743554844/profile?page=1)
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HnnyY61HG',
+ 'comment_num': 0,
+ 'content': '春日大典，#巨兵长城传#同人图征集活动」正式开启！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 236526),
+ 'created_at': '2019-03-31 01:52',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HnnyY61HG'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HmrWUEAe9',
+ 'comment_num': 0,
+ 'content': '王者荣耀[超话]# '
+            '【拿不出手46】九亿少女的梦！百里守约百发百中~惊现私生饭！围观一线男演员百里更新的私生活！！#拿不出手[超话]# '
+            '著作权归本人所有，商业转载请联系我获得授权，非商业转载请标明出处，喜欢我的小伙伴谢谢点赞！呆阿拿和她的朋友们的秒拍视频',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 255510),
+ 'created_at': '2019-03-24 23:11',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HmrWUEAe9'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HmrSmtkVq',
+ 'comment_num': 0,
+ 'content': '转/发/抽/奖# @微博抽奖平台 车专＋关注 揪九位颂p7.9的',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 266501),
+ 'created_at': '2019-03-24 23:00',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HmrSmtkVq'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HjDWLbKi2',
+ 'comment_num': 0,
+ 'content': 'vivo iQOO生而强悍#抢到哪个买哪个，iqoo还是买8+128g往上吧，标配8+128有快充 '
+            '如何评价vivo子品牌iQOO手机?和小米9相比哪个更值得购买？',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 276497),
+ 'created_at': '2019-03-06 12:13',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HjDWLbKi2'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HjDVUzSqI',
+ 'comment_num': 0,
+ 'content': '天起，你将拥有性能猛兽@iQOO手机 '
+            '。高通骁龙855，44W超快闪充+4000mAh大电池，Muti-Turbo，KPL官方比赛用机，4D游戏震感2.0，超级液冷散热，暗夜光轨后盖，超广角AI三摄，NFC支付···关注+带话题#vivo '
+            'iQOO生而强悍#转发微博，抽送1台，3.12开奖。vivo iQOO热销中，更多惊喜戳 转发赢iQOO手机',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 285492),
+ 'created_at': '2019-03-06 12:11',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HjDVUzSqI'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HiX6w1fII',
+ 'comment_num': 0,
+ 'content': '转发送3台iQOO手机】生而强悍的内芯，是致敬非凡的追求，iQOO手机全网2998起开启预售→http://t.cn/EfsC94n关注+转发，抽送三台iQOO手机！#vivo '
+            'iQOO生而强悍#',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 296486),
+ 'created_at': '2019-03-01 23:09',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HiX6w1fII'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_HhLaWwQbc',
+ 'comment_num': 0,
+ 'content': '拿不出手[超话]#【拿不出手41】魔铠变身！八秒真男人背后的孤独！八秒真男人，连斩击退一刀归海~#王者荣耀[超话]# '
+            '著作权归本人所有，商业转载请联系我获得授权，非商业转载请标明出处，喜欢我的小伙伴谢谢点赞！呆阿拿和她的朋友们的秒拍视频',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 305480),
+ 'created_at': '2019-02-22 02:57',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HhLaWwQbc'}
+2019-05-03 17:18:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=3>
+{'_id': '5743554844_H1wzREbfX',
+ 'comment_num': 0,
+ 'content': '歉，此微博已被作者删除。查看帮助：http://t.cn/Rfd3rQV',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 357451),
+ 'created_at': '2018-11-07 08:22:27',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/H1wzREbfX'}
+2019-05-03 17:19:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/5743554844/profile?page=2> (referer: https://weibo.cn/5743554844/profile?page=1)
+2019-05-03 17:19:01 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://weibo.cn/comment/HsaqSvGPJ?ckAll=1> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2019-05-03 17:19:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=2>
+{'_id': '5743554844_Hsdq3w4kF',
+ 'comment_num': 0,
+ 'content': '应该就是蚂蚁森林里面的沙柳吧……不容易啊！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 23351),
+ 'created_at': '2019-05-01 21:14',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/Hsdq3w4kF'}
+2019-05-03 17:19:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=2>
+{'_id': '5743554844_HsdpxC5Nt',
+ 'comment_num': 1,
+ 'content': '广袤的代码森林里，996程序猿的生存状况如何？欢迎走进本期《动物世界》',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 33345),
+ 'created_at': '2019-05-01 21:13',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsdpxC5Nt'}
+2019-05-03 17:19:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=2>
+{'_id': '5743554844_HscN997A8',
+ 'comment_num': 0,
+ 'content': '启青槿子未几云雨动，潮来万物生。青萍出浮若，映水照花荣。（୧( ⁼̴̶̤̀ω⁼̴̶̤́ )૭我就是青槿子） 开封',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 89312),
+ 'created_at': '2019-05-01 19:38',
+ 'like_num': 1,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HscN997A8'}
+2019-05-03 17:19:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=2>
+{'_id': '5743554844_HscCajXCA',
+ 'comment_num': 0,
+ 'content': '山海镜花[超话]# <大国·殊俗>「山海万国志· '
+            '地理卷」开映！此系列视频将陆续为大家揭秘大荒世界各个国家的独特风景，灵神异兽以及龙子一行在其中经历的奇闻趣事。[爱你]今日，情报螈特别放送狐族之乡青丘国设定视频供大家观赏！↓↓↓十里桃花四季开，落英如云醉青丘。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 101307),
+ 'created_at': '2019-05-01 19:11',
+ 'like_num': 1,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HscCajXCA'}
+2019-05-03 17:19:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/5743554844/profile?page=2>
+{'_id': '5743554844_HomHM3ElB',
+ 'comment_num': 0,
+ 'content': '莉拉 杀青快乐',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 120294),
+ 'created_at': '2019-04-06 13:31',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HomHM3ElB'}
+2019-05-03 17:19:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/comment/Hs9WKmyCp?ckAll=1> (referer: https://weibo.cn/5743554844/profile?page=1)
+2019-05-03 17:19:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/comment/Hs9WKmyCp?ckAll=1>
+{'_id': '5743554844_HskzA0Arg',
+ 'comment_num': 0,
+ 'content': '他们是万千劳动者中的一员，为我们造就了生活的便利。我们走过的路、穿过的隧道、购物的商场，是他们修的；住的房子，是他们装修的；家里的瓷砖，是他们一块块打磨的；戴的宝石、穿的牛仔裤等都是他们的劳动成果。而这些也都是产生尘肺性职业病的原因。今天是五一劳动节，是所有劳动者的节日。在这一天，特别想问候这些曾经在工作一线，如今却不能工作的尘肺病兄弟，告诉他们：我们没有忘记你们～节日快乐',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 43, 220570),
+ 'created_at': '2019-05-02 15:26',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HskzA0Arg'}
+2019-05-03 17:19:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/comment/HnTqan0xQ?ckAll=1> (referer: https://weibo.cn/5743554844/profile?page=3)
+2019-05-03 17:19:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/comment/HnTqan0xQ?ckAll=1>
+{'_id': '5743554844_HnVjXbRav',
+ 'comment_num': 0,
+ 'content': '好，我们就事说事，看点实锤：1. '
+            '第一张微信截图：百人赛一开始，鲍橒就私下联系了不少队员，拉群（不拉群，是我和王峰队长当他的面商定的，这个你要否认不？栏目组说要他做准备挑队员，不是要他去私底下拉群，这个不要偷换概念）。关键是，他还透露了题目的细节给选手，这是作弊。目的可能是招募好队员？我不做过多的猜测，请鲍橒自己解释。另外，透题的范围还不止一个人，这也是为什么很多队员不敢站出来，因为怕被牵扯。要不，鲍橒队长，自己主动交代一下其他的透题的情况？最好是不要等我的实锤来验证，比如说阿基米德多面体的这个项目的问题。2. '
+            '第二张微信截图：在云之队和某个队伍的比赛之前，他请求对手的一位队员放水。令人赞许的是，这个队员不仅没有放水，而且漂亮地赢了一场。补充说明，里面提到的台本会写2：1或者2：0的局面，这是正常的，因为不同的比分，会有不同的舞台设置，嘉宾也会说不同的话。任何参加过拍摄的人都知道这种设置，请某些人不要拿作为黑幕的素材。要不，鲍橒队长，自己主动交代一下其他的试图让队员放水的情况？最好不要撒谎，要不实锤证据可能会打脸。更多的解释：1. '
+            '我隐去了队员的身份信息和头像，是防止他们被网络暴力侵害。我个人也对他们能站出来、为真相和正义发声，感到无比的欣慰和感激。2. '
+            '如果有人，特别是”德高望重“的人，从赛季一开始，就开始透题的话，是不是会让各位选手对阴谋和黑幕开始笃信起来？这是一个恶性循环的起点，不是吗？3. '
+            '更多的队员可能会站出来，指证到底发生了什么。目前，大家只是被网络暴力和某人把持的信息所挟裹而已。但是，法庭审判案子的时候，可以保护证人的隐私，所以大家一直寄希望到法庭上解决问题，这样可以保护诸多队员。这个软肋，被某些人抓到了。但是，我说过，正义不会迟到。4. '
+            '下面一句话是给鲍橒的：你如果把上面两个队员的名字报出来，我也不奇怪，反正你是不忌讳把队员拉下水，你也是用这种”威慑“来让知道你所作所为的队员不发声的。所以，现在你可以开始你的表演了，我拭目以待。5. '
+            '王易木是否作弊，节目组是否有不当行为，我等你们实际的证据和后面的法律判决。但是，鲍橒你现在要给我解释清楚为什么要通过泄露题目、操纵比赛和我与王峰做不正当的竞争！我是直到国际赛拍摄前夕，才知道了这么多内情。过去几天，我也收到了三个队的队员提供的信息，我才明白黑白居然能这样被颠倒，一个“英雄”挑战一个“黑幕”机构的桥段居然能这样被写就，知道真相的人居然会这样被”舆论“给吓退缩。但是，我不怕，我相信正义和真相迟早会来，即使现在全世界的风向都往一边吹，我也要站直。也谢谢关心我的亲人和朋友，你们说我不应该淌浑水，要明哲保身。我理解你们对我的关心，但是总要人说出真相，即使它很复杂。坐等迟到的正义，这不是我做人的态度。我再说一句：我的队员，赢下的每一场比赛，都是他们能力和努力获得的成功，赢得光明磊落；他们是真正的最强大脑，我为他们感到无比的骄傲。另外，如果有我本人透题、操纵比赛的证据，欢迎呈现出来，我欢迎大家的监督。另外，不要用P图等下三滥的手段，有话就说话。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 232527),
+ 'created_at': '2019-04-03 15:48',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HnVjXbRav'}
+2019-05-03 17:19:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/comment/HniNSapv7?ckAll=1> (referer: https://weibo.cn/5743554844/profile?page=3)
+2019-05-03 17:19:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/comment/HniNSapv7?ckAll=1>
+{'_id': '5743554844_HnVkI7BZp',
+ 'comment_num': 0,
+ 'content': '不好意思，我是看不下去了，几件事：1.@鲍橒BaoYun鲍云2.有事儿说事儿，不要阴阳怪气！3.痛快人说痛快话，不要磨磨唧唧！4.我不要柠檬，不要道听途说，不要充气的那种锤，我要实锤！5.指名道姓，不要含沙射影！6.到底要怼谁？大胆的怼出来！不要再牵连一帮孩子了！7.不要来来回回，既然决定开怼，请一气呵成！   '
+            '看的我累死了！知道为什么拍不出《古惑仔》的兄弟情吗？陈浩南说，出来混，凭三件事：有义气，够狠，兄弟多！如果做老大的都不挺自己的兄弟，谈什么兄弟情，那可都是过命的交情！洪兴十三妹都知道的事情，真正的陈浩南不会不懂！',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 18, 57, 229531),
+ 'created_at': '2019-04-03 15:50',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HnVkI7BZp'}
+2019-05-03 17:19:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/comment/HsaqSvGPJ?ckAll=1> (referer: https://weibo.cn/5743554844/profile?page=2)
+2019-05-03 17:19:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/comment/HsaqSvGPJ?ckAll=1>
+{'_id': '5743554844_HsdHjep0v',
+ 'comment_num': 0,
+ 'content': '宾夕法尼亚州工厂主强迫童工每星期工作90个小时，因此被罚款100美元。为了弥补损失，工厂主就从童工每星期的薪水中扣除33美分。每星期，至少有一名炼钢工人的衣服着火。每年，钢铁厂会有两万多名工人因工伤致残，但老板们仍不愿花钱改善安全设施。...1934年，总共爆发了1856起罢工，大部分是为了争取资方承认工会的合法性。那是段悲惨的岁月，资方的恐怖手段染红了劳工史，血迹斑斑。在弗立克矿区，公司雇用的枪手守在矿井外，若有工会成员出现，他们就会开枪。在资方私有的威斯康星州科勒镇，破坏罢工的暴徒向劳联纠察队开枪，造成2死35伤。在托莱多电动车灯公司，新成立的全美汽车工人联合会正在和蛮横的管理人员谈判，国民警卫队枪杀了27名工人。旧金山的数名码头工人、明尼阿波利斯市的多名卡车司机、新英格兰地区和南方各州的15名纺织工人都被杀害。明尼阿波利斯市有两名特派代表也被谋害，其中一个是商人。埃里克·塞瓦赖德当时是《明尼阿波利斯明星报》记者，报道了罢工的新闻。他看到寻衅复仇的警察朝着手无寸铁、毫无警觉的人群一通扫射，67人受伤，2人重伤不治。目睹这样的场面，他吓得目瞪口呆，随后写道:“那一刻，我突然从心底里明白了什么是法西斯主义。”...托莱多市、旧金山市和明尼阿波利斯市的工会虽获得了资方承认，可在钢铁、纺织、汽车、橡胶等行业的大企业里，拒不承认工会的厂主却占了多数。在国会成立国家劳工关系委员会时，全国制造商协会要求其成员不予理睬。在一次判例案件中，一家工厂确实没遵守委员会的规定，受到的处罚只是不准挂蓝鹰标志。政府还是犹豫不决。1935 '
+            '年2月下旬，一家联邦地区法院认定《全国工业复兴法》第7条第1款违宪。参议员瓦格纳和马萨诸塞州众议员小威廉·P·康纳利立刻提案,要建立一个国家劳工关系委员会，规定工人有权选出特定的工会，在联邦政府监督下，代表他们和资方集体谈判，并规定什么样的劳动操作规程是公平合理的。瓦格纳说，如果工人的工资一直涨不上去，他们就无法购买自己生产的商品，那样“大萧条”就不会结束。罗斯福听从了瓦格纳的意见，在7月5号签署了法案。但资方仍我行我素。美国公民自由联盟散发了律师工会58名成员起草的宣言，宣告《瓦格纳法》和第7条第1款一样违宪。显然，工人运动离实现目标还很远，老板们还在负隅顽抗。1935 '
+            '年，又有32名罢工者和支持罢工的人被杀害。为了镇压罢工，南达科他、伊利诺伊、内布拉斯加、肯塔基、佐治亚和俄亥俄各州都出动了国民警卫队。工人运动进展依然缓慢，装配线上还有大量工人没有参加工会，没得到合理报酬，从事着高强度的工作。——【美】威廉·曼彻斯特《光荣与梦想 '
+            '1932-1972年美国叙事史》',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 21353),
+ 'created_at': '2019-05-01 21:56',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsdHjep0v'}
+2019-05-03 17:19:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/comment/HscvhE6rv?ckAll=1> (referer: https://weibo.cn/5743554844/profile?page=2)
+2019-05-03 17:19:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/comment/HscvhE6rv?ckAll=1>
+{'_id': '5743554844_HsdgW04zk',
+ 'comment_num': 0,
+ 'content': '我突然有一个疑问，现在孩子为啥教育为啥老是出现各种问题呢？学校和教育局告诉我们：家长要负很大一部分责任！！可是现在流行996啊，诸位教育界大佬们，家长们很难见到醒着的孩子啊，你咋不能让家长每天半夜12点拉孩子起来教育一顿吧。。。。。。。那样估计孩子想死的心思都有了！！！我们都知道孩子会自觉模仿大人们的行为，而孩子稍微懂事后又基本不是和家长在一起的，那么他们能模仿的似乎只有老师。。。。。。。为了孩子能有成长的物质条件，家长们只能被迫接受企业996制度，这又导致没时间对孩子进行道德教育。教育专家又说家长必须承担孩子道德教育，学校呢，现在只把注意力放在了学习好的那一小撮孩子身上，而且是放在成绩上。只能说现在孩子是悲剧的，也许是空有健康的身躯，却没有健康的灵魂。几十年后，谁又会为这些买单',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 88313),
+ 'created_at': '2019-05-01 20:51',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsdgW04zk'}
+2019-05-03 17:19:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/comment/Hs2WZ2tmm?ckAll=1> (referer: https://weibo.cn/5743554844/profile?page=2)
+2019-05-03 17:19:23 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/comment/Hs2WZ2tmm?ckAll=1>
+{'_id': '5743554844_HsdoHBijJ',
+ 'comment_num': 0,
+ 'content': '最近有个外媒的朋友跟我聊为什么中国996，加州却恨不得让员工吃好睡好。他跟我提到一个朋友说的观点，我印象特别深刻。他说“为什么有些公司996？因为他们需要靠不停地快速去抄对手来抢速度，所以需要人海战术。但如果一个公司靠的不是抄，而是创新。那创新就需要用脑，脑子需要时间去休息，去睡眠，去找灵感。这种情况下996不但不会带来创新，反而会减速。”这让我想到几件事。一个是我曾经写过的《高效能人士的7个习惯》里效率和产能的平衡。你有一只能产金蛋的鸡，你是要累死鸡取金蛋，还是养肥了鸡却蛋变少了？ '
+            '上次提到的95后男生，还跟我说过一句，他觉得创业，尤其内容创业需要“身体”。身体就是用身心去体会。所以越是需要大脑运作的工作，越需要生活，需要休息，出去看世界。这是效率和产能之间很难的平衡，当然不要误解，这也绝对不是拖延的借口。毕竟加州很多公司，也走上了另个极端，现在也像养老院似的。到底哪种公司能行？天下武功为快不破？还是想清楚，慢慢去创新？我也很好奇。',
+ 'crawl_time': datetime.datetime(2019, 5, 3, 17, 19, 1, 87323),
+ 'created_at': '2019-05-01 21:10',
+ 'like_num': 0,
+ 'repost_num': 0,
+ 'user_id': '5743554844',
+ 'weibo_url': 'https://weibo.com/5743554844/HsdoHBijJ'}
+2019-05-03 17:19:23 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-05-03 17:19:23 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 13999,
+ 'downloader/request_count': 14,
+ 'downloader/request_method_count/GET': 14,
+ 'downloader/response_bytes': 84058,
+ 'downloader/response_count': 14,
+ 'downloader/response_status_count/200': 14,
+ 'dupefilter/filtered': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 5, 3, 9, 19, 23, 246150),
+ 'item_scraped_count': 52,
+ 'log_count/DEBUG': 67,
+ 'log_count/INFO': 9,
+ 'request_depth_max': 4,
+ 'response_received_count': 14,
+ 'scheduler/dequeued': 14,
+ 'scheduler/dequeued/memory': 14,
+ 'scheduler/enqueued': 14,
+ 'scheduler/enqueued/memory': 14,
+ 'start_time': datetime.datetime(2019, 5, 3, 9, 18, 36, 170898)}
+2019-05-03 17:19:23 [scrapy.core.engine] INFO: Spider closed (finished)

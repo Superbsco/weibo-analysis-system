@@ -9,7 +9,7 @@
 import xadmin
 from xadmin import views
 # here put the import lib
-from .models import Target, UserInfo, TweetsInfo, CommentWeiboInfo, CommentInfo
+from .models import Target, UserInfo, TweetsInfo, CommentWeiboInfo, CommentInfo, ImgInfo
 
 
 class TargetAdmin(object):
@@ -28,17 +28,17 @@ class UserInfoAdmin(object):
 
 
 class TweetsInfoAdmin(object):
-  list_display = ['UserInfo', '_id', 'Content', 'PubTime', 'Co_oridinates', 'Tools', 'Like', 'Comment', 'Transfer']
-  search_fields = ['UserInfo__NickName', '_id', 'Content', 'PubTime', 'Co_oridinates', 'Tools', 'Like', 'Comment', 'Transfer'] 
-  list_filter = ['UserInfo', '_id', 'Content', 'PubTime', 'Co_oridinates', 'Tools', 'Like', 'Comment', 'Transfer']
+  list_display = ['UserInfo', '_id', 'Content', 'PubTime', 'Co_oridinates', 'Tools', 'Like', 'Comment', 'Transfer','Content', 'tags', 'pinyin', 'sentiments', 'crawl_time']
+  search_fields = ['UserInfo__NickName', '_id', 'Content', 'PubTime', 'Co_oridinates', 'Tools', 'Like', 'Comment', 'Transfer','Content', 'tags', 'pinyin', 'sentiments', 'crawl_time'] 
+  list_filter = ['UserInfo', '_id', 'Content', 'PubTime', 'Co_oridinates', 'Tools', 'Like', 'Comment', 'Transfer','Content', 'tags', 'pinyin', 'sentiments', 'crawl_time']
 
 class CommentWeiboInfoAdmin(object):
   list_display = ['wb_id', 'wb_userId', 'wb_userName', 'wb_user_profile_image_url', 'wb_created_at', 'wb_source', 
-                    'wb_text', 'wb_pic_ids', 'wb_reposts', 'wb_comments']
+                    'wb_text', 'wb_pic_ids', 'wb_reposts', 'wb_comments', 'wb_like']
   search_fields =  ['wb_id', 'wb_userId', 'wb_userName', 'wb_user_profile_image_url', 'wb_created_at', 'wb_source', 
-                    'wb_text', 'wb_pic_ids', 'wb_reposts', 'wb_comments']
+                    'wb_text', 'wb_pic_ids', 'wb_reposts', 'wb_comments', 'wb_like']
   list_filter =  ['wb_id', 'wb_userId', 'wb_userName', 'wb_user_profile_image_url', 'wb_created_at', 'wb_source', 
-                    'wb_text', 'wb_pic_ids', 'wb_reposts', 'wb_comments']
+                    'wb_text', 'wb_pic_ids', 'wb_reposts', 'wb_comments', 'wb_like']
 
 class CommentInfoAdmin(object):
     list_display = ['CommentWeiboInfo', 'c_id', 'c_created_at', 'c_source', 'c_text', 
@@ -47,6 +47,11 @@ class CommentInfoAdmin(object):
                     'c_like_num', 'c_userId', 'c_user_name', 'C_profile_image_url', 'C_profile_url']
     list_filter = ['CommentWeiboInfo', 'c_id', 'c_created_at', 'c_source', 'c_text', 
                     'c_like_num', 'c_userId', 'c_user_name', 'C_profile_image_url', 'C_profile_url']
+
+class ImgInfoAdmin(object):
+    list_display = ['UserInfo', 'wordcloud']    
+    search_fields =  ['UserInfo__NickName', 'wordcloud']
+    list_filter = ['UserInfo', 'wordcloud'] 
 
 class BaseSetting(object):
   enable_themes = True
@@ -64,5 +69,6 @@ xadmin.site.register(UserInfo, UserInfoAdmin)
 xadmin.site.register(TweetsInfo, TweetsInfoAdmin)
 xadmin.site.register(CommentWeiboInfo, CommentWeiboInfoAdmin)
 xadmin.site.register(CommentInfo, CommentInfoAdmin)
+xadmin.site.register(ImgInfo, ImgInfoAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSettings)

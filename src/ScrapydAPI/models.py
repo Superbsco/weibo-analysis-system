@@ -13,6 +13,8 @@ from django.db import models
 class Target(models.Model):
     uid = models.CharField(max_length=20, verbose_name=u"爬取用户")
     cookie = models.TextField(verbose_name=u"设置cookie")
+    isScrapy = models.IntegerField(default=0, verbose_name=u"是否爬取")
+    group = models.IntegerField(default=0, verbose_name=u"用户分组")
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
@@ -26,7 +28,7 @@ class Target(models.Model):
 class UserInfo(models.Model):
     """ 个人信息 """
     _id = models.CharField(max_length=200, verbose_name=u"用户id", primary_key=True)  # 用户ID
-    # Image = models.TextField(verbose_name=u"用户头像", blank=True)  # 用户头像
+    Image = models.TextField(verbose_name=u"用户头像", blank=True)  # 用户头像
     nick_name = models.CharField(max_length=30, verbose_name=u"昵称") #昵称
     gender = models.CharField(max_length=6, choices=(("male", u"男"), ("female", u"女")), default="female",verbose_name=u"性别") # 性别
     labels = models.CharField(max_length=500, verbose_name=u"标签", blank=True)  # 所在省
@@ -50,7 +52,7 @@ class UserInfo(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return "{0}".format(self.NickName) 
+        return "{0}".format(self.nick_name) 
 
 
 class TweetsInfo(models.Model):
@@ -72,7 +74,7 @@ class TweetsInfo(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return "{0}".format(self.user_id) 
+        return "{0}".format(self._id) 
 
 class RelationshipsInfo(models.Model):
     _id = models.CharField(max_length=50, verbose_name=u"用户关系ID", primary_key=True)
@@ -100,4 +102,4 @@ class CommentInfo(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return "{0}".format(self.comment_user_id) 
+        return "{0}".format(self._id) 

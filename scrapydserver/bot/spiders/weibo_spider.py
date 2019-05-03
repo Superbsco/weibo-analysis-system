@@ -28,13 +28,17 @@ class WeiboSpider(Spider):
             use_unicode=True)
         # 通过cursor执行增删查改
         cursor = connect.cursor()
-        cursor.execute("""SELECT uid from scrapydapi_target""")
+        cursor.execute("""SELECT uid from scrapydapi_target WHERE isScrapy=0""")     
         uids = cursor.fetchall()
+        start_uids = uids
+        print('uid:::',uids)
+        for uid in start_uids:
+            cursor.execute("""UPDATE scrapydapi_target set isScrapy=1 WHERE uid=%s""" % uid)
+            cursor.execute("commit")
+            yield Request(url="https://weibo.cn/%s/info" % uid, callback=self.parse_information)
         connect.close()
         cursor.close()
-        start_uids = uids
-        for uid in start_uids:
-            yield Request(url="https://weibo.cn/%s/info" % uid, callback=self.parse_information)
+
 
     def parse_information(self, response):
         """ 抓取个人信息 """
@@ -42,6 +46,7 @@ class WeiboSpider(Spider):
         information_item['crawl_time'] = datetime.now()
         selector = Selector(response)
         information_item['_id'] = re.findall('(\d+)/info', response.url)[0]
+        image = selector.xpath('body/div[@class="c"]//img/@src').extract()
         text1 = ";".join(selector.xpath('body/div[@class="c"]//text()').extract())  # 获取标签里的所有text()
         nick_name = re.findall('昵称;?[：:]?(.*?);', text1)
         gender = re.findall('性别;?[：:]?(.*?);', text1)
@@ -53,6 +58,8 @@ class WeiboSpider(Spider):
         vip_level = re.findall('会员等级;?[：:]?(.*?);', text1)
         authentication = re.findall('认证;?[：:]?(.*?);', text1)
         labels = re.findall('标签;?[：:]?(.*?)更多>>', text1)
+        if image and image[0]:
+            information_item["Image"] = image[0]
         if nick_name and nick_name[0]:
             information_item["nick_name"] = nick_name[0].replace(u"\xa0", "")
         if gender and gender[0]:
@@ -108,14 +115,14 @@ class WeiboSpider(Spider):
                       callback=self.parse_tweet,
                       priority=1)
 
-        # 获取关注列表
-        yield Request(url=self.base_url + '/{}/follow?page=1'.format(information_item['_id']),
-                      callback=self.parse_follow,
-                      dont_filter=True)
-        # 获取粉丝列表
-        yield Request(url=self.base_url + '/{}/fans?page=1'.format(information_item['_id']),
-                      callback=self.parse_fans,
-                      dont_filter=True)
+        # # 获取关注列表
+        # yield Request(url=self.base_url + '/{}/follow?page=1'.format(information_item['_id']),
+        #               callback=self.parse_follow,
+        #               dont_filter=True)
+        # # 获取粉丝列表
+        # yield Request(url=self.base_url + '/{}/fans?page=1'.format(information_item['_id']),
+        #               callback=self.parse_fans,
+        #               dont_filter=True)
 
     def parse_tweet(self, response):
         if response.url.endswith('page=1'):
@@ -173,8 +180,8 @@ class WeiboSpider(Spider):
                     yield tweet_item
 
                 # 抓取该微博的评论信息
-                comment_url = self.base_url + '/comment/' + tweet_item['weibo_url'].split('/')[-1] + '?page=1'
-                yield Request(url=comment_url, callback=self.parse_comment, meta={'weibo_url': tweet_item['weibo_url']})
+                # comment_url = self.base_url + '/comment/' + tweet_item['weibo_url'].split('/')[-1] + '?page=1'
+                # yield Request(url=comment_url, callback=self.parse_comment, meta={'weibo_url': tweet_item['weibo_url']})
 
             except Exception as e:
                 self.logger.error(e)

@@ -6,7 +6,7 @@ from django.db import models
 # Create your models here.
 class Target(models.Model):
     uid = models.CharField(max_length=20, verbose_name=u"爬取用户")
-    cookie = models.TextField(verbose_name=u"设置cookie")
+    cookie = models.TextField(verbose_name=u"设置cookie",  blank=True)
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
@@ -35,7 +35,7 @@ class UserInfo(models.Model):
     Sentiment = models.CharField(max_length=30, verbose_name=u"感情状况", blank=True)  # 感情状况
     VIPlevel = models.CharField(max_length=30, verbose_name=u"会员等级", blank=True)  # 会员等级
     Authentication = models.CharField(max_length=30, verbose_name=u"认证", blank=True)  # 认证
-    URL = models.CharField(max_length=30, verbose_name=u"首页链接", blank=True)  # 首页链接
+    URL = models.CharField(max_length=300, verbose_name=u"首页链接", blank=True)  # 首页链接
     
     class Meta:
         verbose_name = u"用户信息"
@@ -56,10 +56,16 @@ class TweetsInfo(models.Model):
     Like = models.IntegerField(default=0, verbose_name=u'点赞数', blank=True)  # 点赞数
     Comment = models.IntegerField(default=0, verbose_name=u'评论数', blank=True)  # 评论数
     Transfer = models.IntegerField(default=0, verbose_name=u'转载数', blank=True)  # 转载数
-
+    tags = models.TextField(verbose_name=u"标签", blank=True)
+    pinyin = models.TextField(verbose_name=u"词性", blank=True)
+    sentiments = models.CharField(max_length=50, verbose_name=u"情感值", blank=True)
+    crawl_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间", blank=True)
+    
     class Meta:
         verbose_name = u"微博信息"
         verbose_name_plural = verbose_name
+    def __str__(self):
+        return "{0}".format(self._id)
 
 class CommentWeiboInfo(models.Model):
     """ 评论信息 """
@@ -73,6 +79,7 @@ class CommentWeiboInfo(models.Model):
     wb_pic_ids = models.TextField(verbose_name=u"微博图片", blank=True)
     wb_reposts = models.IntegerField(default=0, verbose_name=u'转载数', blank=True)
     wb_comments = models.IntegerField(default=0, verbose_name=u'评论数', blank=True)
+    wb_like = models.IntegerField(default=0, verbose_name=u'点赞数', blank=True)
 
     class Meta:
         verbose_name = u"微博评论"
@@ -96,4 +103,15 @@ class CommentInfo(models.Model):
         verbose_name = u"评论详情"
         verbose_name_plural = verbose_name
     def __str__(self):
-        return "{0}".format(self.CommentWeiboInfo) 
+        return "{0}".format(self.CommentWeiboInfo)
+
+class ImgInfo(models.Model):  
+    UserInfo = models.ForeignKey(UserInfo, verbose_name=u"用户信息", on_delete=models.CASCADE)
+    wordcloud = models.TextField(verbose_name=u"微博词云", blank=True)
+
+
+    class Meta:
+        verbose_name = u"微博词云"
+        verbose_name_plural = verbose_name
+    def __str__(self):
+        return "{0}".format(self.UserInfo)

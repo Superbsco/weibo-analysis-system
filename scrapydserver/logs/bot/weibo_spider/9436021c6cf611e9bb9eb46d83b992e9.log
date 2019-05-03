@@ -1,0 +1,36 @@
+2019-05-03 00:23:16 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: bot)
+2019-05-03 00:23:16 [scrapy.utils.log] INFO: Versions: lxml 4.3.3.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.6.3 |Anaconda, Inc.| (default, Oct 15 2017, 03:27:45) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17763-SP0
+2019-05-03 00:23:16 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'bot', 'DOWNLOAD_DELAY': 3, 'LOG_FILE': 'logs\\bot\\weibo_spider\\9436021c6cf611e9bb9eb46d83b992e9.log', 'NEWSPIDER_MODULE': 'bot.spiders', 'SPIDER_MODULES': ['bot.spiders']}
+2019-05-03 00:23:16 [scrapy.extensions.telnet] INFO: Telnet Password: 35945fbb655f66cc
+2019-05-03 00:23:16 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-05-03 00:23:16 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-05-03 00:23:16 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-05-03 00:23:16 [scrapy.middleware] INFO: Enabled item pipelines:
+['bot.pipelines.BotPipeline']
+2019-05-03 00:23:16 [scrapy.core.engine] INFO: Spider opened
+2019-05-03 00:23:16 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-05-03 00:23:16 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-05-03 00:23:16 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-05-03 00:23:16 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 5, 2, 16, 23, 16, 212016),
+ 'log_count/INFO': 9,
+ 'start_time': datetime.datetime(2019, 5, 2, 16, 23, 16, 196024)}
+2019-05-03 00:23:16 [scrapy.core.engine] INFO: Spider closed (finished)

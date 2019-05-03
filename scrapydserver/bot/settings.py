@@ -36,7 +36,7 @@ cursor.close()
 listCookie = []
 for res1 in cookie:
     listCookie.append(res1)
-print(random.choice(listCookie))
+random.shuffle(listCookie)
 
 BOT_NAME = 'bot'
 
@@ -45,8 +45,12 @@ NEWSPIDER_MODULE = 'bot.spiders'
 
 # 请将Cookie替换成你自己的Cookie
 DEFAULT_REQUEST_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6824.400 QQBrowser/10.3.3127.400',
-    'Cookie': random.choice(listCookie)
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    'Connection': 'keep-alive',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+    'Cookie': '_T_WM=50363706066; _WEIBO_UID=1797112632; _T_WL=1; TMPTOKEN=bxCuDsiKUQY2sOT9Le88wAefIoC875Bo0Db2mrn7UD5D3PBj5Y2S3HsCDFJAxh28; ALF=1559406008; SCF=AoLtbFF76lqGJoGS67xfWdN25HiipYMS8RNOsQP8J1SmIgi7wHRoWF5Qz2aNpJhwRdzeFkELxt8cM1MOzq8TtZ4.; SUB=_2A25xz2jpDeRhGeBL7VYT-CzMyj-IHXVTMAihrDV6PUNbktAKLRWgkW1NRvot3YHElYQeX7nzuJ-_wPy29U4vS5Gr; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W5M6cF8H3lRRyK.ZidI-eTX5JpX5KzhUgL.FoqfSoBE1hz7eKe2dJLoIERLxK-L12qLB-qLxKBLBo.L1K5LxK-L122LBK5LxK-L1K2LBoeLxKMLBozLB.Hp; SUHB=04W-N46VY7mi75; SSOLoginState=1556814010'
 }
 
 # 当前是单账号，所以下面的 CONCURRENT_REQUESTS 和 DOWNLOAD_DELAY 请不要修改
