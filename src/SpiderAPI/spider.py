@@ -223,7 +223,7 @@ class Weibo:
             str_time = info.xpath("div/span[@class='ct']")
             str_time = str_time[0].xpath("string(.)").encode(
                 sys.stdout.encoding, "ignore").decode(sys.stdout.encoding)
-            publish_time = str_time.split(u'来自')[0]
+            publish_time = str_time.split(u'来自')[0].strip()
             if u"刚刚" in publish_time:
                 publish_time = datetime.now().strftime(
                     '%Y-%m-%d %H:%M')
@@ -236,12 +236,18 @@ class Weibo:
                 today = datetime.now().strftime("%Y-%m-%d")
                 time = publish_time[3:]
                 publish_time = today + " " + time
+                # now_time = datetime.now()
+                # publish_time = publish_time.replace('今天', now_time.strftime('%Y-%m-%d'))
             elif u"月" in publish_time:
                 year = datetime.now().strftime("%Y")
                 month = publish_time[0:2]
                 day = publish_time[3:5]
                 time = publish_time[7:12]
                 publish_time = (year + "-" + month + "-" + day + " " + time)
+                # now_time = datetime.now()
+                # time_string = publish_time.replace('月', '-').replace('日', '')
+                # time_string = str(now_time.year) + '-' + time_string
+                # publish_time = time_string
             else:
                 publish_time = publish_time[:16]
             return publish_time

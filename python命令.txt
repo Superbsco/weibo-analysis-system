@@ -17,7 +17,7 @@ DATABASES = {
         'NAME': 'WeiboAnalysisSystem',
         'USER': 'root',
         'PASSWORD': 'Aa123hsp.',
-        'HOST': '139.199.4.56'
+        'HOST': 'xxxx'
     }
 }
 
