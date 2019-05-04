@@ -205,7 +205,22 @@ DATABASES = {
 
 至此，开发环境就搭建完成了。
 
-### 5、启动代码：
+### 5、系统介绍（2019.5.4毕设已完成，就不罗嗦其他了，直接介绍系统以及系统启动）：
+
+待完善
+
+###6、系统启动注意事项
+1、获取Cookie方式，自行登录微博m站获取Cookie，实在不清楚，可以参考这里 https://blog.csdn.net/A_xiao_mili/article/details/77947802
+
+2、启动前进入xadmin后台账号是`hsp` 密码是`admin123`设置爬虫API的爬虫设置的Cookie,即可
+
+3、如需启动Scrapyd爬虫, 进入weibo-analysis-system\scrapydserver\bot\settings.py文件，找到Cookie,设置Cookie，保存。
+
+然后执行scrapyd-deploy sina -p bot重新部署上去就好了（前提是启动了Scrpayd，不然部署失败）
+
+（启动方式参考技术文档）
+
+
 
 
 
