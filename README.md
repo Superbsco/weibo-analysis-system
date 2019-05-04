@@ -55,14 +55,14 @@
 
 按照技术文档按照完了之后，workon进入虚拟环境：
 
-####1、数据库自动生成，使用如下命令：
+#### 1、数据库自动生成，使用如下命令：
 
 ```python
 python manage.py makgrations
 python manage.py migrate
 ```
 
-####2、初始化Cookies
+#### 2、初始化Cookies
 爬虫之前一定要先进入xadmin后台，使用数据库自动生成后，xadmin的登录账号密码就没了，参考这里初始化账号：https://blog.csdn.net/a_little_snail/article/details/76984933 ，
 然后重设Cookie，获取新浪微博Cookie，可参考 https://blog.csdn.net/A_xiao_mili/article/details/77947802 这里。
 
