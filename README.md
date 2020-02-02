@@ -1,6 +1,13 @@
 ## weibo-analysis-system 
 `毕业设计`：微博用户情感分析系统
 
+> (2020/02/02)更新，近日有不少童鞋来问我这个项目跑不起的问题，当时水平有点不够，写的确实有点乱，这里简单说明一下项目下下来直接跑起的方法。前提先搞好python环境和vue环境,保证你有一个账户密码连上数据库mysql。
+1、pip install requirements.txt 安装python包
+2、修改mysql数据库的账户密码（weibosystem/ssettings）里面
+3、创建数据库 python manage.py makemigrations python manage.py migrate
+4、创建后台xadmin账户python manage.py createsuperuser
+5、登录后台，http://localhost:8000/xadmin/SpiderAPI/target/ 在爬虫API里面的爬虫设置，输入一个用户uid + cookie，然后即可开始在首页localhost:8000数据爬虫id爬虫
+
 ### 1、系统介绍（2019.5.4毕设已完成）：
 
 > extra_apps：xadmin后台管理系统
@@ -58,7 +65,7 @@
 #### 1、数据库自动生成，使用如下命令：
 
 ```python
-python manage.py makgrations
+python manage.py makemigrations
 python manage.py migrate
 ```
 
